@@ -1,0 +1,322 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Documentação da API</h1>
+
+    <div class="card">
+        <h2>1. Listar Alunos</h2>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Endpoint:</strong> <code>/alunos</code></p>
+        <p><strong>Descrição:</strong> Retorna uma lista de todos os alunos.</p>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Uma lista de objetos de alunos.</li>
+        </ul>
+        <pre><code>[
+  {
+    "id": 1,
+    "nome": "João",
+    "idade": 15,
+    "turma": "2A",
+    "nascimento": "2009-01-15",
+    "nota_primeiro_semestre": 8.5,
+    "nota_segundo_semestre": 9.0,
+    "nota_final": 8.75
+  },
+  ...
+]</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>2. Obter Aluno por ID</h2>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Endpoint:</strong> <code>/alunos/&lt;int:aluno_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Retorna os detalhes de um aluno específico pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>aluno_id</code>: O ID do aluno.</li>
+        </ul>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Objeto do aluno.</li>
+            <li><strong>404 Not Found:</strong> Se o aluno com o ID especificado não for encontrado.</li>
+        </ul>
+        <pre><code>{
+  "id": 1,
+  "nome": "João",
+  "idade": 15,
+  "turma": "2A",
+  "nascimento": "2009-01-15",
+  "nota_primeiro_semestre": 8.5,
+  "nota_segundo_semestre": 9.0,
+  "nota_final": 8.75
+}</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>3. Adicionar Aluno</h2>
+        <p><strong>Método:</strong> POST</p>
+        <p><strong>Endpoint:</strong> <code>/alunos</code></p>
+        <p><strong>Descrição:</strong> Adiciona um novo aluno.</p>
+        <p><strong>Corpo da Requisição:</strong></p>
+        <pre><code>{
+  "nome": "João",
+  "idade": 15,
+  "turma": "2A",
+  "nascimento": "2009-01-15",
+  "nota_primeiro_semestre": 8.5,
+  "nota_segundo_semestre": 9.0,
+  "nota_final": 8.75
+}</code></pre>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>201 Created:</strong> O ID do aluno recém-criado.</li>
+            <li><strong>400 Bad Request:</strong> Se os dados fornecidos forem inválidos.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>4. Atualizar Aluno</h2>
+        <p><strong>Método:</strong> PUT</p>
+        <p><strong>Endpoint:</strong> <code>/alunos/&lt;int:aluno_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Atualiza os detalhes de um aluno específico pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>aluno_id</code>: O ID do aluno a ser atualizado.</li>
+        </ul>
+        <p><strong>Corpo da Requisição:</strong></p>
+        <pre><code>{
+  "nome": "João Silva",
+  "idade": 16,
+  "turma": "2A",
+  "nascimento": "2008-01-15",
+  "nota_primeiro_semestre": 9.0,
+  "nota_segundo_semestre": 9.5,
+  "nota_final": 9.25
+}</code></pre>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Aluno atualizado com sucesso.</li>
+            <li><strong>404 Not Found:</strong> Se o aluno com o ID especificado não for encontrado.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>5. Excluir Aluno</h2>
+        <p><strong>Método:</strong> DELETE</p>
+        <p><strong>Endpoint:</strong> <code>/alunos/&lt;int:aluno_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Exclui um aluno específico pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>aluno_id</code>: O ID do aluno a ser excluído.</li>
+        </ul>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>204 No Content:</strong> Aluno excluído com sucesso.</li>
+            <li><strong>404 Not Found:</strong> Se o aluno com o ID especificado não for encontrado.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>6. Listar Professores</h2>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Endpoint:</strong> <code>/professores</code></p>
+        <p><strong>Descrição:</strong> Retorna uma lista de todos os professores.</p>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Uma lista de objetos de professores.</li>
+        </ul>
+        <pre><code>[
+  {
+    "id": 1,
+    "nome": "Maria",
+    "idade": 30,
+    "materia": "Matemática",
+    "observacoes": "Professora dedicada."
+  },
+  ...
+]</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>7. Obter Professor por ID</h2>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Endpoint:</strong> <code>/professores/&lt;int:professor_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Retorna os detalhes de um professor específico pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>professor_id</code>: O ID do professor.</li>
+        </ul>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Objeto do professor.</li>
+            <li><strong>404 Not Found:</strong> Se o professor com o ID especificado não for encontrado.</li>
+        </ul>
+        <pre><code>{
+  "id": 1,
+  "nome": "Maria",
+  "idade": 30,
+  "materia": "Matemática",
+  "observacoes": "Professora dedicada."
+}</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>8. Adicionar Professor</h2>
+        <p><strong>Método:</strong> POST</p>
+        <p><strong>Endpoint:</strong> <code>/professores</code></p>
+        <p><strong>Descrição:</strong> Adiciona um novo professor.</p>
+        <p><strong>Corpo da Requisição:</strong></p>
+        <pre><code>{
+  "nome": "Maria",
+  "idade": 30,
+  "materia": "Matemática",
+  "observacoes": "Professora dedicada."
+}</code></pre>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>201 Created:</strong> O ID do professor recém-criado.</li>
+            <li><strong>400 Bad Request:</strong> Se os dados fornecidos forem inválidos.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>9. Atualizar Professor</h2>
+        <p><strong>Método:</strong> PUT</p>
+        <p><strong>Endpoint:</strong> <code>/professores/&lt;int:professor_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Atualiza os detalhes de um professor específico pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>professor_id</code>: O ID do professor a ser atualizado.</li>
+        </ul>
+        <p><strong>Corpo da Requisição:</strong></p>
+        <pre><code>{
+  "nome": "Maria Silva",
+  "idade": 31,
+  "materia": "Matemática Avançada",
+  "observacoes": "Professora experiente."
+}</code></pre>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Professor atualizado com sucesso.</li>
+            <li><strong>404 Not Found:</strong> Se o professor com o ID especificado não for encontrado.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>10. Excluir Professor</h2>
+        <p><strong>Método:</strong> DELETE</p>
+        <p><strong>Endpoint:</strong> <code>/professores/&lt;int:professor_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Exclui um professor específico pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>professor_id</code>: O ID do professor a ser excluído.</li>
+        </ul>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>204 No Content:</strong> Professor excluído com sucesso.</li>
+            <li><strong>404 Not Found:</strong> Se o professor com o ID especificado não for encontrado.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>11. Listar Turmas</h2>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Endpoint:</strong> <code>/turmas</code></p>
+        <p><strong>Descrição:</strong> Retorna uma lista de todas as turmas.</p>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Uma lista de objetos de turmas.</li>
+        </ul>
+        <pre><code>[
+  {
+    "id": 1,
+    "nome": "2A",
+    "ano": 2024,
+    "professor_id": 1
+  },
+  ...
+]</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>12. Obter Turma por ID</h2>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Endpoint:</strong> <code>/turmas/&lt;int:turma_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Retorna os detalhes de uma turma específica pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>turma_id</code>: O ID da turma.</li>
+        </ul>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Objeto da turma.</li>
+            <li><strong>404 Not Found:</strong> Se a turma com o ID especificado não for encontrada.</li>
+        </ul>
+        <pre><code>{
+  "id": 1,
+  "nome": "2A",
+  "ano": 2024,
+  "professor_id": 1
+}</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>13. Adicionar Turma</h2>
+        <p><strong>Método:</strong> POST</p>
+        <p><strong>Endpoint:</strong> <code>/turmas</code></p>
+        <p><strong>Descrição:</strong> Adiciona uma nova turma.</p>
+        <p><strong>Corpo da Requisição:</strong></p>
+        <pre><code>{
+  "nome": "2A",
+  "ano": 2024,
+  "professor_id": 1
+}</code></pre>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>201 Created:</strong> O ID da turma recém-criada.</li>
+            <li><strong>400 Bad Request:</strong> Se os dados fornecidos forem inválidos.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>14. Atualizar Turma</h2>
+        <p><strong>Método:</strong> PUT</p>
+        <p><strong>Endpoint:</strong> <code>/turmas/&lt;int:turma_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Atualiza os detalhes de uma turma específica pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>turma_id</code>: O ID da turma a ser atualizada.</li>
+        </ul>
+        <p><strong>Corpo da Requisição:</strong></p>
+        <pre><code>{
+  "nome": "2B",
+  "ano": 2024,
+  "professor_id": 1
+}</code></pre>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>200 OK:</strong> Turma atualizada com sucesso.</li>
+            <li><strong>404 Not Found:</strong> Se a turma com o ID especificado não for encontrada.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>15. Excluir Turma</h2>
+        <p><strong>Método:</strong> DELETE</p>
+        <p><strong>Endpoint:</strong> <code>/turmas/&lt;int:turma_id&gt;</code></p>
+        <p><strong>Descrição:</strong> Exclui uma turma específica pelo ID.</p>
+        <p><strong>Parâmetros:</strong></p>
+        <ul>
+            <li><code>turma_id</code>: O ID da turma a ser excluída.</li>
+        </ul>
+        <p><strong>Resposta:</strong></p>
+        <ul>
+            <li><strong>204 No Content:</strong> Turma excluída com sucesso.</li>
+            <li><strong>404 Not Found:</strong> Se a turma com o ID especificado não for encontrada.</li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

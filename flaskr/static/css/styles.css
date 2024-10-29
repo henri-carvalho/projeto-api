@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 60px;
+    min-height: calc(100vh - 120px);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #333; 
+    color: #ffffff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #242424;
+}
+
+.table tr:hover {
+    background-color: #555;
+}
+
+.instructions-container {
+    display: flex;
+    gap: 20px; /* Espaço entre os cards */
+    margin-bottom: 30px;
+}
+
+.instruction-card {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #2b2b2b;
+    transition: transform 0.2s;
+    margin-bottom: 20px; 
+}
+
+.instruction-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.instruction-card code {
+    display: block;
+    background-color: #444;
+    padding: 5px;
+    border-radius: 3px;
+    color: #d63384;
+    margin: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.instruction-card pre {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    color: #ffffff;
+    overflow: auto;
+}
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.nav-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.nav-bar a:hover {
+    background-color: #555;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px 0;
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5);
+}
+.bar-404 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1000;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5);
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.bar-404 a {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.bar-404 a:hover {
+    background-color: #555;
+}

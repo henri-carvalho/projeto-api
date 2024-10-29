@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Gestão</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <a href="/home">Home</a>
+            <a href="/alunos">Alunos</a>
+            <a href="/professores">Professores</a>
+            <a href="/turmas">Turmas</a>
+            <a href="/docs">Docs</a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 - Impacta</p>
+    </footer>
+</body>
+</html>

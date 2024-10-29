@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Como utilizar o endpoint de Professores</h1>
+
+    <!-- Card de instrução para listar todos os professores -->
+    <div class="instruction-card">
+        <h2>Listar Todos os Professores</h2>
+        <p>Para listar todos os professores, faça uma requisição <strong>GET</strong> para a rota:</p>
+        <code>/professores</code>
+    </div>
+
+    <!-- Cards de Instruções para Gerenciamento de Professores -->
+    <div class="instructions-container">
+        <div class="instruction-card">
+            <h2>Criar Novo Professor</h2>
+            <p>Faça uma requisição <strong>POST</strong> para a rota:</p>
+            <code>/professores</code>
+            <p>Corpo da requisição (JSON):</p>
+            <pre>
+{
+    "nome": "Nome do Professor",
+    "materia": "Disciplina",
+    "observacoes": "Observações adicionais"
+}
+            </pre>
+        </div>
+
+        <div class="instruction-card">
+            <h2>Editar Professor</h2>
+            <p>Faça uma requisição <strong>PUT</strong> para a rota:</p>
+            <code>/professores/&lt;id_professor&gt;</code>
+            <p>Corpo da requisição (JSON):</p>
+            <pre>
+{
+    "nome": "Novo Nome",
+    "materia": "Nova Disciplina",
+    "observacoes": "Atualizações nas observações"
+}
+            </pre>
+        </div>
+
+        <div class="instruction-card">
+            <h2>Excluir Professor</h2>
+            <p>Faça uma requisição <strong>DELETE</strong> para a rota:</p>
+            <code>/professores/&lt;id_professor&gt;</code>
+        </div>
+    </div>
+
+    <!-- Tabela de professores -->
+    <h1>Lista de Professores</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Professor</th>
+                <th>Disciplina</th>
+                <th>Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for professor in professores %}
+            <tr>
+                <td>{{ professor.id }}</td>
+                <td>{{ professor.nome }}</td>
+                <td>{{ professor.materia }}</td>
+                <td>{{ professor.observacoes }}</td>
+            {% else %}
+            <tr>
+                <td colspan="4">Nenhum professor encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

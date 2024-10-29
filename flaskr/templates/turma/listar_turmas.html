@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Como utilizar o endpoint de Turmas</h1>
+
+    <!-- Card de instrução para listar todas as turmas -->
+    <div class="instruction-card">
+        <h2>Listar Todas as Turmas</h2>
+        <p>Para listar todas as turmas, faça uma requisição <strong>GET</strong> para a rota:</p>
+        <code>/turmas</code>
+    </div>
+
+    <!-- Cards de Instruções para Gerenciamento de Turmas -->
+    <div class="instructions-container">
+        <div class="instruction-card">
+            <h2>Criar Nova Turma</h2>
+            <p>Faça uma requisição <strong>POST</strong> para a rota:</p>
+            <code>/turmas</code>
+            <p>Corpo da requisição (JSON):</p>
+            <pre>
+{
+    "descricao": "Descrição da Turma"
+}
+            </pre>
+        </div>
+
+        <div class="instruction-card">
+            <h2>Editar Turma</h2>
+            <p>Faça uma requisição <strong>PUT</strong> para a rota:</p>
+            <code>/turmas/&lt;id_turma&gt;</code>
+            <p>Corpo da requisição (JSON):</p>
+            <pre>
+{
+    "descricao": "Nova Descrição da Turma"
+}
+            </pre>
+        </div>
+
+        <div class="instruction-card">
+            <h2>Excluir Turma</h2>
+            <p>Faça uma requisição <strong>DELETE</strong> para a rota:</p>
+            <code>/turmas/&lt;id_turma&gt;</code>
+        </div>
+    </div>
+
+    <!-- Tabela de turmas -->
+    <h1>Lista de Turmas</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Ativo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turma in turmas %}
+            <tr>
+                <td>{{ turma.id }}</td>
+                <td>{{ turma.descricao }}</td>
+                <td>{{ turma.ativo }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Nenhuma turma encontrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

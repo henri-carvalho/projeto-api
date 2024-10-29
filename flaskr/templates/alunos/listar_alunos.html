@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Como utilizar o endpoint de Alunos</h1>
+    <div class="instruction-card">
+        <h2>Listar Todos os Alunos</h2>
+        <p>Faça uma requisição <strong>GET</strong> para a rota:</p>
+        <code>/alunos</code>
+    </div>
+    <!-- Cards de Instruções para Gerenciamento de Alunos -->
+    <div class="instructions-container">
+        <div class="instruction-card">
+            <h2>Criar Novo Aluno</h2>
+            <p>Faça uma requisição <strong>POST</strong> para a rota:</p>
+            <code>/alunos</code>
+            <p>Corpo da requisição (JSON):</p>
+            <pre>
+{
+    "nome": "Nome do Aluno",
+    "turma": "Turma",
+    "idade": 20,
+    "email": "email@example.com",
+    "telefone": "123456789"
+}
+            </pre>
+        </div>
+
+        <div class="instruction-card">
+            <h2>Editar Aluno</h2>
+            <p>Faça uma requisição <strong>PUT</strong> para a rota:</p>
+            <code>/alunos/&lt;id_aluno&gt;</code>
+            <p>Corpo da requisição (JSON):</p>
+            <pre>
+{
+    "nome": "Novo Nome",
+    "turma": "Nova Turma",
+    "idade": 20,
+    "email": "novoemail@example.com",
+    "telefone": "123456789"
+}
+            </pre>
+        </div>
+
+        <div class="instruction-card">
+            <h2>Excluir Aluno</h2>
+            <p>Faça uma requisição <strong>DELETE</strong> para a rota:</p>
+            <code>/alunos/&lt;id_aluno&gt;</code>
+        </div>
+    </div>
+
+    <!-- Tabela de alunos -->
+    <h1>Lista de alunos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Aluno</th>
+                <th>Turma</th>
+                <th>Idade</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.id }}</td>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.turma }}</td>
+                <td>{{ aluno.idade }}</td>
+                <td>{{ aluno.email }}</td>
+                <td>{{ aluno.telefone }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">Nenhum aluno encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
